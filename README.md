@@ -42,3 +42,6 @@ Component and application styling is required
 - webpack-dev-server: It is intended to use webpack with a development server that provides live reloading. This should be used for development only. It uses webpack-dev-middleware under the hood, which provides fast in-memory access to the webpack assets, so it is faster, instead of rely on rewriting on the phisicaly on dist folder using the file system.
 - html-webpack-plugin: This package is a plugins for our webpack package, and important to note that plugins runs after the modules of webpack resolves, we are using it to generate our index.html file (inside the dist folder when building for production) and applying a `
   <script src="[bundle_name].js"></script>` at our index.html file inside the app folder.
+- babel-loader: This package allows transpiling JavaScript files using Babel and webpack, its totally required since we will want to transpile JSX from Javascript Files for development with React.js.
+- css-loader: This package is commonly used with style-loader, it interprets @import and url() like import/require() and will resolve them. (Ex: `url(image.png) => require('./image.png')`)
+- style-loader: This package is a loader for webpack, responsible to inject CSS into the DOM ex (`import './style.css';`)
