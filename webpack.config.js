@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   mode: 'development', // "production" | "development" | "none"
-  entry: './src/index.js', // string | object | array
+  entry: './src/index.tsx', // string | object | array
   // Here the application starts executing
   // and webpack starts bundling
   output: {
@@ -25,7 +25,7 @@ module.exports = {
     rules: [
       // rules for modules (configure loaders, parser options, etc.)
       {
-        test: /\.(js)$/,
+        test: /\.(ts|tsx)$/,
         exclude: /(node_modules)/,
         use: 'babel-loader'
       },
