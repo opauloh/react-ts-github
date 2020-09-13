@@ -5,6 +5,9 @@
   "main": "index.js",
   "author": "opauloh",
   "license": "MIT",
+  "scripts": {
+    "start": "webpack-dev-server"
+  },
   "dependencies": {
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
