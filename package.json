@@ -1,0 +1,8 @@
+{
+  "name": "react-ts-github",
+  "version": "1.0.0",
+  "description": "React + TS application that connects to the GitHub API",
+  "main": "index.js",
+  "author": "opauloh",
+  "license": "MIT"
+}
