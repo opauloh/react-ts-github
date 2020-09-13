@@ -4,5 +4,9 @@
   "description": "React + TS application that connects to the GitHub API",
   "main": "index.js",
   "author": "opauloh",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  }
 }

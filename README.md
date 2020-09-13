@@ -20,3 +20,8 @@ User has to be able to sort repositories by name.
 User repositories should be cached in order to assure immediate access of user
 data if the same search is executed.
 Component and application styling is required
+
+## Dependencies
+
+- react: The aim of this project, is a JavaScript library for creating user interfaces and handle stage management.
+- react-dom: In this project is the entry point to the DOM for React
