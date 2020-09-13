@@ -25,3 +25,7 @@ Component and application styling is required
 
 - react: The aim of this project, is a JavaScript library for creating user interfaces and handle stage management.
 - react-dom: In this project is the entry point to the DOM for React
+
+## Dev Dependencies
+
+- typescript : Another requirement for this project, it mades developer's life easier by executing javascript Type checks in development time, preventing a lot of unexpected runtime errors
