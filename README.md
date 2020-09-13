@@ -21,6 +21,10 @@ User repositories should be cached in order to assure immediate access of user
 data if the same search is executed.
 Component and application styling is required
 
+## Architectural decision
+
+- Transpiler: Babel - We are using babel, mainly to transpile our React Code with shinning new ECMA6+ features to Javascript code that our target browsers can understand
+
 ## Dependencies
 
 - react: The aim of this project, is a JavaScript library for creating user interfaces and handle stage management.
