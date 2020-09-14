@@ -20,16 +20,34 @@ module.exports = {
     // libraryTarget: "umd", // universal module definition
     // the type of the exported library
   },
+  resolve: {
+    extensions: ['.ts', '.tsx', '.js', '.jsx'],
+    modules: ['node_modules', path.join(__dirname, 'src')]
+  },
   module: {
     // configuration regarding modules
     rules: [
       // rules for modules (configure loaders, parser options, etc.)
       {
-        test: /\.(ts|tsx)$/,
+        test: /\.css$/,
+        exclude: /\.module\.css$/,
+        use: [{ loader: 'style-loader' }, { loader: 'css-loader' }]
+      },
+      {
+        test: /\.module\.css$/,
+        use: [
+          { loader: 'style-loader' },
+          {
+            loader: 'css-loader',
+            options: { modules: true }
+          }
+        ]
+      },
+      {
+        test: /\.(js|ts|jsx|tsx)$/,
         exclude: /(node_modules)/,
         use: 'babel-loader'
-      },
-      { test: /\.(css)$/, use: ['style-loader', 'css-loader'] }
+      }
     ]
     /* Advanced module configuration (click to show) */
   },
