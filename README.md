@@ -21,6 +21,10 @@ User repositories should be cached in order to assure immediate access of user
 data if the same search is executed.
 Component and application styling is required
 
+## Low-fidelity wireframe
+
+![wireframe](https://i.imgur.com/DgvA3OF.png)
+
 ## Architectural decision
 
 - Transpiler: Babel - We are using babel, mainly to transpile our React Code with shinning new ECMA6+ features to Javascript code that our target browsers can understand
