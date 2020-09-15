@@ -1,11 +1,12 @@
-export function setCache(key: string, data: object) {
+export function setCache(key: string, data: any) {
   return Promise.resolve(
     window.localStorage.setItem(key, JSON.stringify(data))
   );
 }
 export function getCache(key: string) {
-  return Promise.resolve(JSON.parse(window.localStorage.getItem(key)));
+  const cache = window.localStorage.getItem(key);
+  return Promise.resolve(JSON.parse(cache ? cache : ''));
 }
-export function isCached(key: string) {
-  return window.localStorage.getItem(key);
+export function isCached(key: string): boolean {
+  return window.localStorage.getItem(key) !== null;
 }
