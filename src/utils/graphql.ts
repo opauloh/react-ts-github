@@ -1,6 +1,7 @@
+import { IProfile } from '../components/Profile';
 import { getCache, setCache, isCached } from './cache';
 
-function fetchGraphQL(search: string, cache: boolean = true) {
+function fetchGraphQL<T>(search: string, cache: boolean = true): Promise<T> {
   if (cache && isCached(search)) return getCache(search);
   return fetch(`https://api.github.com/graphql`, {
     method: 'POST',
@@ -11,10 +12,13 @@ function fetchGraphQL(search: string, cache: boolean = true) {
     },
     body: search
   })
-    .then((res) => res.json())
+    .then((res) => res.json() as Promise<{ data: T; errors: any }>)
     .then((data) => {
-      if (cache) setCache(search, data);
-      return data;
+      if (data.errors)
+        throw new Error(data.errors.map((e: any) => e.message).join(', '));
+
+      if (cache) setCache(search, data.data);
+      return data.data;
     });
 }
 
@@ -37,11 +41,13 @@ const PROFILE = (login: string) =>
   });
 
 export function getProfile(username: string) {
-  return fetchGraphQL(PROFILE(username)).then((profile) => {
-    if (profile.message) {
-      throw new Error(profile.message);
-    }
+  interface RequestProfile {
+    user: IProfile;
+  }
 
-    return profile.data.user;
-  });
+  return fetchGraphQL<RequestProfile>(PROFILE(username)).then(
+    (profile: RequestProfile) => {
+      return profile.user;
+    }
+  );
 }
