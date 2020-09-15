@@ -1,7 +1,10 @@
 import React, { ChangeEvent, FormEvent, useState } from 'react';
 import styles from './Search.module.css';
 
-export default function Search({ onSubmit }) {
+type Props = {
+  onSubmit: Function;
+};
+export default function Search({ onSubmit }: Props) {
   const [username, setUsername] = useState('');
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
