@@ -49,3 +49,5 @@ Component and application styling is required
 - babel-loader: This package allows transpiling JavaScript files using Babel and webpack, its totally required since we will want to transpile JSX from Javascript Files for development with React.js.
 - css-loader: This package is commonly used with style-loader, it interprets @import and url() like import/require() and will resolve them. (Ex: `url(image.png) => require('./image.png')`)
 - style-loader: This package is a loader for webpack, responsible to inject CSS into the DOM ex (`import './style.css';`)
+- dotenv: This package allows to parse variables from a ".env" file to use on node on process.env
+- dotenv-webpack: dotenv Plugin for webpack
