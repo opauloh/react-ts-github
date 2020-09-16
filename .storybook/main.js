@@ -1,6 +1,5 @@
 module.exports = {
   stories: ['../src/**/*.stories.@(js|jsx|ts|tsx)'],
-  addons: ['@storybook/addon-actions', '@storybook/addon-links'],
   webpackFinal: async (config, { configType }) => {
     // get index of css rule
     const ruleCssIndex = config.module.rules.findIndex(

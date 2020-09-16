@@ -51,3 +51,4 @@ Component and application styling is required
 - style-loader: This package is a loader for webpack, responsible to inject CSS into the DOM ex (`import './style.css';`)
 - dotenv: This package allows to parse variables from a ".env" file to use on node on process.env
 - dotenv-webpack: dotenv Plugin for webpack
+- @storybook/react: Storybook is an open source tool for developing UI components in isolation, creating documentation out of the box, and helping developers to test component isolation, and this is the extension to visualize React components
