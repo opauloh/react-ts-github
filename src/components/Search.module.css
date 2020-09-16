@@ -7,19 +7,6 @@
   display: flex;
   justify-content: space-between;
 }
-.btn {
-  background: var(--background-inverse);
-  color: var(--color-inverse);
-  border-radius: var(--border-radius);
-  height: 2rem;
-  cursor: pointer;
-  padding: 0.25rem 0.5rem;
-  box-sizing: border-box;
-  margin-left: var(--spacing);
-}
-.btn:hover {
-  opacity: 0.8;
-}
 .input {
   box-sizing: border-box;
   border-radius: var(--border-radius);
