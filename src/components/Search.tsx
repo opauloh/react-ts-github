@@ -1,5 +1,6 @@
 import React, { ChangeEvent, FormEvent, useState } from 'react';
 import styles from './Search.module.css';
+import Button from './Button';
 
 type Props = {
   onSubmit: Function;
@@ -31,9 +32,9 @@ export default function Search({ onSubmit }: Props) {
           value={username}
           onChange={handleChange}
         />
-        <button className={styles.btn} type="submit" disabled={!username}>
+        <Button type="submit" disabled={!username}>
           SEARCH
-        </button>
+        </Button>
       </div>
     </form>
   );
