@@ -15,6 +15,7 @@ const Result: FC<Props> = ({ username }) => {
   );
 
   useEffect(() => {
+    dispatch({ type: 'loading' });
     getProfile(username)
       .then((profile) => dispatch({ type: 'success', profile }))
       .catch(({ message }) => dispatch({ type: 'error', error: message }));
