@@ -1,7 +1,7 @@
 .error {
-  color: red;
-  border-color: red;
-  border-radius: 4px;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  color: var(--color-error);
+  border-color: var(--color-error);
+  border-radius: var(--border-radius);
+  margin-top: var(--spacing);
+  margin-bottom: var(--spacing);
 }

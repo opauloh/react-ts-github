@@ -1,6 +1,6 @@
 .label {
   display: block;
-  font-size: 0.875rem;
+  font-size: var(--font-size-md);
   margin-bottom: 0.25rem;
 }
 .search {
@@ -8,20 +8,23 @@
   justify-content: space-between;
 }
 .btn {
-  background: #444;
-  color: #fefefe;
-  border: 1px solid #333;
-  border-radius: 4px;
+  background: var(--background-inverse);
+  color: var(--color-inverse);
+  border-radius: var(--border-radius);
   height: 2rem;
   cursor: pointer;
   padding: 0.25rem 0.5rem;
   box-sizing: border-box;
-  margin-left: 15px;
+  margin-left: var(--spacing);
+}
+.btn:hover {
+  opacity: 0.8;
 }
 .input {
   box-sizing: border-box;
-  border-radius: 4px;
-  border: 1px solid #333;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--color-text);
   width: 100%;
   padding: 0.25rem;
+  font-size: var(--font-size-md);
 }
