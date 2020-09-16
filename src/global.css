@@ -135,6 +135,21 @@ body {
 }
 
 .container {
-  width: 1000px;
   margin: 0 auto;
+  padding: 20px;
+  max-width: 1000px;
+}
+
+/* variables */
+:root {
+  --border-radius: 4px;
+  --font-size-md: 0.875rem;
+  --spacing: 20px;
+  --background-primary: #fff;
+  --background-inverse: #333;
+  --background-secondary: #efefef;
+  --color-text: #333;
+  --color-inverse: #fefefe;
+  --color-link: #111;
+  --color-error: #dd1199;
 }
