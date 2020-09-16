@@ -14,7 +14,7 @@
 .avatar {
   flex-shrink: 1;
   flex-grow: 0;
-  max-width: 300px;
+  max-width: 250px;
 }
 .avatar__img {
   width: 100%;
