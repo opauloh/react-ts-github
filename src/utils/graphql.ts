@@ -24,8 +24,9 @@ function fetchGraphQL<T>(search: string, cache: boolean = true): Promise<T> {
 
 const PROFILE = (login: string) =>
   JSON.stringify({
-    query: ` {
-      user(login: "${login}") {
+    query: `
+    query userProfile($login: String!) {
+      user(login: $login) {
         avatarUrl
         email
         url
@@ -37,7 +38,8 @@ const PROFILE = (login: string) =>
           totalCount
         }
       }
-    }`
+    }`,
+    variables: { login }
   });
 
 export function getProfile(username: string) {
