@@ -16,16 +16,20 @@ const Profile: FC<Props> = ({ profile }) => {
   const { avatarUrl, login, email, url } = profile;
   return (
     <div className={styles.profile}>
-      <img className={styles.avatar} src={avatarUrl} />
-      <ul className={styles.info}>
-        <li>{login}</li>
-        <li>{email}</li>
-        <li>29 repositories</li>
-        <li>10 followers</li>
-      </ul>
-      <a href={url} target="_blank">
-        See profile on Github &gt;
-      </a>
+      <div className={styles.avatar}>
+        <img className={styles.avatar__img} src={avatarUrl} />
+      </div>
+      <div className={styles.info}>
+        <ul className={styles.info__list}>
+          <li>{login}</li>
+          <li>{email}</li>
+          <li>29 repositories</li>
+          <li>10 followers</li>
+        </ul>
+        <a className={styles.info__link} href={url} target="_blank">
+          See profile on Github &gt;
+        </a>
+      </div>
     </div>
   );
 };
