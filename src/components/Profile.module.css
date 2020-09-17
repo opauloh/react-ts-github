@@ -34,7 +34,7 @@
   text-align: left;
 }
 .info__list li {
-  line-height: 1.6rem;
+  line-height: var(--text-line-height);
   font-weight: bold;
 }
 .info__link {
