@@ -1,6 +1,8 @@
-import React, { FC, useEffect, useReducer } from 'react';
-import { resultsReducer, resultsState } from '../reducers/resultReducer';
+import React, { Dispatch, FC, useContext, useEffect, useReducer } from 'react';
+import UserContext from '../contexts/userContext';
+import { ResultAction, ResultState } from '../reducers/resultReducer';
 import { getProfile } from '../utils/graphql';
+import Loading from './Loading';
 import Profile from './Profile';
 import styles from './Result.module.css';
 
@@ -9,10 +11,10 @@ type Props = {
 };
 
 const Result: FC<Props> = ({ username }) => {
-  const [{ error, profile, loading }, dispatch] = useReducer(
-    resultsReducer,
-    resultsState
-  );
+  const [{ error, profile, loading }, dispatch]: [
+    ResultState,
+    Dispatch<ResultAction>
+  ] = useContext(UserContext);
 
   useEffect(() => {
     dispatch({ type: 'loading' });
@@ -21,7 +23,7 @@ const Result: FC<Props> = ({ username }) => {
       .catch(({ message }) => dispatch({ type: 'error', error: message }));
   }, [username]);
 
-  if (loading) return <div>Loading...</div>;
+  if (loading) return <Loading />;
 
   if (error) return <div className={styles.error}>{error}</div>;
 
