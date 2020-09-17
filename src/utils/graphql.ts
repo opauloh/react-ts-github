@@ -1,7 +1,12 @@
 import { IProfile } from '../components/Profile';
+import { IRepositories } from '../components/Repositories';
 import { getCache, setCache, isCached } from './cache';
 
-function fetchGraphQL<T>(search: string, cache: boolean = true): Promise<T> {
+function fetchGraphQL<T>(
+  search: string,
+  cache: boolean = true,
+  delay: number = 0
+): Promise<T> {
   if (cache && isCached(search)) return getCache(search);
   return fetch(`https://api.github.com/graphql`, {
     method: 'POST',
@@ -60,4 +65,47 @@ export function getProfile(username: string) {
       return profile.user;
     }
   );
+}
+
+const REPOSITORIES = (login: string, sorting: Sorting, cursor: Cursor) =>
+  JSON.stringify({
+    query: `
+    query userRepositories($login: String!, $sorting: String!, $cursor: String) {
+      user(login: $login) {
+        repositories(orderBy: {field: NAME, direction: $sorting}, first: 10, after: $cursor) {
+          edges {
+            cursor
+            node {
+              id
+              url
+              description
+              name          
+            }
+          }
+        }
+      }
+    }`,
+    variables: { login, sorting, cursor }
+  });
+
+export function getRepositories(
+  username: string,
+  sorting: Sorting,
+  cursor: Cursor
+) {
+  interface IRepositoriesUsersRepositoriesEdges {
+    edges: IRepositories[];
+  }
+  interface IRepositoriesUsersRepositories {
+    repositories: IRepositoriesUsersRepositoriesEdges;
+  }
+  interface IRepositoriesUsers {
+    user: IRepositoriesUsersRepositories;
+  }
+
+  return fetchGraphQL<IRepositoriesUsers>(
+    REPOSITORIES(username, sorting, cursor)
+  ).then((repositories: IRepositoriesUsers) => {
+    return repositories.user.repositories.edges;
+  });
 }
