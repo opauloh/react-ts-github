@@ -1,0 +1,6 @@
+.loading {
+  display: block;
+  font-size: var(--font-size-md);
+  color: var(--color-loading);
+  margin: var(--spacing) 0;
+}
