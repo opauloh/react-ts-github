@@ -1,0 +1,19 @@
+.repository {
+  background: var(--background-secondary);
+  color: var(--color-text);
+  border-radius: var(--border-radius);
+  margin-bottom: var(--spacing);
+  padding: var(--spacing);
+  line-height: var(--text-line-height);
+}
+.name {
+  font-weight: bold;
+  font-size: var(--font-size-lg);
+}
+.name a {
+  text-decoration: none;
+  color: var(--color-text);
+}
+.name a:hover {
+  text-decoration: underline;
+}
