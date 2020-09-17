@@ -28,6 +28,8 @@ Component and application styling is required
 ## Architectural decision
 
 - Transpiler: Babel - We are using babel, mainly to transpile our React Code with shinning new ECMA6+ features to Javascript code that our target browsers can understand
+- Data fetcher: native fetch api (For enterprise App would use a more appropriated library such as [SWR](https://swr.vercel.app/) or [React-Query](https://react-query.tanstack.com/))
+- Styling: css modules with webpack loader (For enterprise App would use a CSS in JS library such [Styled-Components](http://styled-components.com/) or [Emotion](https://emotion.sh/)
 
 ## Environment variables
 
