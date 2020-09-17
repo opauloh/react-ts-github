@@ -1,11 +1,17 @@
 import React, { FC } from 'react';
 import styles from './Profile.module.css';
 
+type TotalCount = {
+  totalCount: number;
+};
+
 export interface IProfile {
   avatarUrl: string;
   email: string;
   login: string;
   url: string;
+  followers: TotalCount;
+  repositories: TotalCount;
 }
 
 type Props = {
@@ -13,7 +19,7 @@ type Props = {
 };
 
 const Profile: FC<Props> = ({ profile }) => {
-  const { avatarUrl, login, email, url } = profile;
+  const { avatarUrl, login, email, url, repositories, followers } = profile;
   return (
     <div className={styles.profile}>
       <div className={styles.avatar}>
@@ -23,8 +29,8 @@ const Profile: FC<Props> = ({ profile }) => {
         <ul className={styles.info__list}>
           <li>{login}</li>
           <li>{email}</li>
-          <li>29 repositories</li>
-          <li>10 followers</li>
+          <li>{repositories.totalCount} repositories</li>
+          <li>{followers.totalCount} followers</li>
         </ul>
         <a className={styles.info__link} href={url} target="_blank">
           See profile on Github &gt;
