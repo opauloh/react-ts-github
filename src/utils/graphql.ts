@@ -13,6 +13,14 @@ function fetchGraphQL<T>(search: string, cache: boolean = true): Promise<T> {
     body: search
   })
     .then((res) => res.json() as Promise<{ data: T; errors: any }>)
+    .then(
+      (res) =>
+        new Promise((resolve) => {
+          setTimeout(() => {
+            resolve(res);
+          }, delay);
+        }) as Promise<{ data: T; errors: any }>
+    )
     .then((data) => {
       if (data.errors)
         throw new Error(data.errors.map((e: any) => e.message).join(', '));
