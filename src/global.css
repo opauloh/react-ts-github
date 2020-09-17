@@ -152,4 +152,6 @@ body {
   --color-inverse: #fefefe;
   --color-link: #111;
   --color-error: #dd1199;
+  --color-loading: #42be29;
+  --text-line-height: 1.6rem;
 }
