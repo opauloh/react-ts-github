@@ -1,6 +1,5 @@
-import React, { Dispatch, useReducer, useState } from 'react';
-import Repositories from './components/Repositories';
-import Result from './components/Result';
+import React, { Dispatch, Suspense, useReducer, useState } from 'react';
+import Loading from './components/Loading';
 import Search from './components/Search';
 import Title from './components/Title';
 import UserContext from './contexts/userContext';
@@ -15,6 +14,9 @@ export interface IUsername {
   username: string;
   valid: Boolean;
 }
+
+const Result = React.lazy(() => import('./components/Result'));
+const Repositories = React.lazy(() => import('./components/Repositories'));
 
 export default function App() {
   const [username, setUsername] = useState<string | null>(null);
@@ -34,8 +36,10 @@ export default function App() {
       <div className="container">
         <Title>React TS Github</Title>
         <Search onSubmit={onSubmit} />
-        {username && <Result username={username} />}
-        <Repositories />
+        <Suspense fallback={<Loading />}>
+          {username && <Result username={username} />}
+          <Repositories />
+        </Suspense>
       </div>
     </UserContext.Provider>
   );
