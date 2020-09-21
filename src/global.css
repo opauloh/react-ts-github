@@ -144,6 +144,7 @@ body {
 :root {
   --border-radius: 4px;
   --font-size-md: 0.875rem;
+  --spacing-sm: 4px;
   --spacing: 20px;
   --background-primary: #fff;
   --background-inverse: #333;
