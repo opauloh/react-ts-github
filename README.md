@@ -60,3 +60,4 @@ Rename .env.example to .env and set values to the environment variables, current
 - dotenv: This package allows to parse variables from a ".env" file to use on node on process.env
 - dotenv-webpack: dotenv Plugin for webpack
 - @storybook/react: Storybook is an open source tool for developing UI components in isolation, creating documentation out of the box, and helping developers to test component isolation, and this is the extension to visualize React components
+- chromatic: Chromatic automates gathering UI feedback, visual testing, and documentation, so developers can iterate faster with less manual work, allowing to publish your Storybook to a secure cloud workspace. Stakeholders can review UI easier and give you feedback faster.
