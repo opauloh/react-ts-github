@@ -9,7 +9,8 @@
     "start": "webpack-dev-server",
     "build": "webpack",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "chromatic": "npx chromatic --project-token fohklcwom7t"
   },
   "dependencies": {
     "react": "^16.13.1",
