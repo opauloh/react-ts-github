@@ -37,6 +37,9 @@
 .info__list li {
   line-height: var(--text-line-height);
   font-weight: bold;
+  border-bottom: 1px dotted var(--background-inverse);
+  padding-bottom: var(--spacing-sm);
+  margin-bottom: var(--spacing-sm);
 }
 .info__link {
   margin-top: 10px;

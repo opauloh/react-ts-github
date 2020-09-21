@@ -16,7 +16,7 @@ const ProfileInfo: FC<Props> = ({ profile }) => {
       <div className={styles.info}>
         <ul className={styles.info__list}>
           <li>{login}</li>
-          <li>{email}</li>
+          {email && <li>{email}</li>}
           <li>{repositories.totalCount} repositories</li>
           <li>{followers.totalCount} followers</li>
         </ul>
