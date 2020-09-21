@@ -1,21 +1,16 @@
 import React, { Dispatch, FC, useContext, useEffect, useReducer } from 'react';
+import { getRepositories } from '../api';
 import UserContext from '../contexts/userContext';
 import {
   repositoriesReducer,
   repositoriesState
 } from '../reducers/repositoriesReducer';
 import { ResultAction, ResultState } from '../reducers/resultReducer';
-import { getRepositories } from '../utils/graphql';
 import Button from './Button';
 import Loading from './Loading';
 import styles from './Repositories.module.css';
-import Repository, { IRepository } from './Repository';
+import Repository from './RepositoryItem';
 import Title from './Title';
-
-export interface IRepositories {
-  cursor: string;
-  node: IRepository;
-}
 
 const Repositories: FC = () => {
   const [{ profile }]: [ResultState, Dispatch<ResultAction>] = useContext(

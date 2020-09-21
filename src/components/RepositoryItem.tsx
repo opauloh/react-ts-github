@@ -1,18 +1,12 @@
 import React, { FC } from 'react';
-import styles from './Repository.module.css';
-
-export interface IRepository {
-  id: string;
-  url: string;
-  description: string;
-  name: string;
-}
+import { Repository } from '../api';
+import styles from './RepositoryItem.module.css';
 
 type Props = {
-  repository: IRepository;
+  repository: Repository;
 };
 
-const Repository: FC<Props> = ({ repository }) => {
+const RepositoryItem: FC<Props> = ({ repository }) => {
   return (
     <div className={styles.repository}>
       <div className={styles.name}>
@@ -25,4 +19,4 @@ const Repository: FC<Props> = ({ repository }) => {
   );
 };
 
-export default Repository;
+export default RepositoryItem;

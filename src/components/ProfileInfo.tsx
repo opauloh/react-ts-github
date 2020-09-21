@@ -1,24 +1,12 @@
 import React, { FC } from 'react';
-import styles from './Profile.module.css';
-
-type TotalCount = {
-  totalCount: number;
-};
-
-export interface IProfile {
-  avatarUrl: string;
-  email: string;
-  login: string;
-  url: string;
-  followers: TotalCount;
-  repositories: TotalCount;
-}
+import { Profile } from '../api';
+import styles from './ProfileInfo.module.css';
 
 type Props = {
-  profile: IProfile;
+  profile: Profile;
 };
 
-const Profile: FC<Props> = ({ profile }) => {
+const ProfileInfo: FC<Props> = ({ profile }) => {
   const { avatarUrl, login, email, url, repositories, followers } = profile;
   return (
     <div className={styles.profile}>
@@ -40,4 +28,4 @@ const Profile: FC<Props> = ({ profile }) => {
   );
 };
 
-export default Profile;
+export default ProfileInfo;

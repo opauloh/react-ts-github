@@ -1,9 +1,9 @@
-import React, { Dispatch, FC, useContext, useEffect, useReducer } from 'react';
+import React, { Dispatch, FC, useContext, useEffect } from 'react';
+import { getProfile } from '../api';
 import UserContext from '../contexts/userContext';
 import { ResultAction, ResultState } from '../reducers/resultReducer';
-import { getProfile } from '../utils/graphql';
 import Loading from './Loading';
-import Profile from './Profile';
+import Profile from './ProfileInfo';
 import styles from './Result.module.css';
 
 type Props = {

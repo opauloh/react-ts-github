@@ -1,5 +1,5 @@
 import { Reducer } from 'react';
-import { IProfile } from '../components/Profile';
+import { Profile } from '../api';
 
 export const resultsState = {
   error: null,
@@ -10,14 +10,14 @@ export const resultsState = {
 export interface ResultState {
   error?: string | null;
   loading?: boolean;
-  profile: IProfile | null;
+  profile: Profile | null;
 }
 
 export type ResultAction =
   | { type: 'reset' }
   | { type: 'loading' }
   | { type: 'error'; error: string }
-  | { type: 'success'; profile: IProfile };
+  | { type: 'success'; profile: Profile };
 
 export const resultsReducer: Reducer<ResultState, ResultAction> = (
   state: ResultState,
