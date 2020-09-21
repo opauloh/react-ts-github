@@ -31,7 +31,7 @@ const Repositories: FC = () => {
           Showing {totalRepositories} Repositories out of {totalCount}{' '}
         </Title>
         <div>
-          <Button onClick={sort}>Sorting name: {sorting}</Button>
+          Sorting name: <Button onClick={sort}>{sorting}</Button>
         </div>
       </div>
       {repositories.map(({ node }) => (
