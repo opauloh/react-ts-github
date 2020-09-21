@@ -15,6 +15,10 @@
   flex-shrink: 1;
   flex-grow: 0;
   max-width: 250px;
+  padding: var(--spacing);
+  background: var(--background-secondary);
+  border-radius: var(--border-radius);
+  box-sizing: border-box;
 }
 .avatar__img {
   width: 100%;
