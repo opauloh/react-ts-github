@@ -1,7 +1,5 @@
-import React, { Dispatch, FC, useContext, useEffect } from 'react';
-import { getProfile } from '../api';
-import UserContext from '../contexts/userContext';
-import { ResultAction, ResultState } from '../reducers/resultReducer';
+import React, { FC } from 'react';
+import useProfile from '../hooks/useProfile';
 import Loading from './Loading';
 import Profile from './ProfileInfo';
 import styles from './Result.module.css';
@@ -11,18 +9,7 @@ type Props = {
 };
 
 const Result: FC<Props> = ({ username }) => {
-  const [{ error, profile, loading }, dispatch]: [
-    ResultState,
-    Dispatch<ResultAction>
-  ] = useContext(UserContext);
-
-  useEffect(() => {
-    dispatch({ type: 'loading' });
-    getProfile(username)
-      .then((profile) => dispatch({ type: 'success', profile }))
-      .catch(({ message }) => dispatch({ type: 'error', error: message }));
-  }, [username]);
-
+  const { error, loading, profile } = useProfile(username);
   if (loading) return <Loading />;
 
   if (error) return <div className={styles.error}>{error}</div>;
