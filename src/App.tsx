@@ -1,4 +1,5 @@
 import React, { Dispatch, Suspense, useReducer, useState } from 'react';
+import * as Sentry from '@sentry/react';
 import Loading from './components/Loading';
 import Search from './components/Search';
 import Title from './components/Title';
@@ -18,7 +19,7 @@ export interface IUsername {
 const Result = React.lazy(() => import('./components/Result'));
 const Repositories = React.lazy(() => import('./components/Repositories'));
 
-export default function App() {
+function App() {
   const [username, setUsername] = useState<string | null>(null);
 
   const [profile, dispatch]: [ResultState, Dispatch<ResultAction>] = useReducer(
@@ -44,3 +45,5 @@ export default function App() {
     </UserContext.Provider>
   );
 }
+
+export default Sentry.withProfiler(App);
